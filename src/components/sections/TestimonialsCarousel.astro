@@ -1,7 +1,10 @@
 ---
+import { media } from '../../data/media';
+
+const { testimonialVideos } = media;
 ---
 
-<section class="testimonials-carousel section section--light" id="depoimentos-carousel">
+<section class="testimonials-carousel section section--light" id="depoimentos-videos">
   <div class="container">
     <div class="testimonials-carousel__header text-center">
       <span class="section-label">DEPOIMENTOS</span>
@@ -12,59 +15,28 @@
     </div>
 
     <div class="testimonials-carousel__grid">
-      <div class="testimonial-card">
-        <div class="testimonial-card__video">
-          <div class="video-placeholder">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
+      {testimonialVideos.map((poster, i) => (
+        <article class="testimonial-card">
+          <div class="testimonial-card__poster">
+            <img src={poster} alt={`Depoimento em vídeo ${i + 1}`} loading="lazy" />
+            <button type="button" class="play-btn" aria-label="Reproduzir depoimento">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="48" aria-hidden="true">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </button>
           </div>
-        </div>
-        <div class="testimonial-card__info">
-          <h4>Maria S.</h4>
-          <p>Perdeu 12kg em 3 meses</p>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-card__video">
-          <div class="video-placeholder">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </div>
-        <div class="testimonial-card__info">
-          <h4>Ana Paula</h4>
-          <p>Conquistou o corpo dos sonhos</p>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-card__video">
-          <div class="video-placeholder">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </div>
-        <div class="testimonial-card__info">
-          <h4>Carolina M.</h4>
-          <p>Ganhou disposição e saúde</p>
-        </div>
-      </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .testimonials-carousel__header {
-    margin-bottom: 64px;
-  }
+  .testimonials-carousel__header { margin-bottom: 64px; }
 
   .testimonials-carousel__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 24px;
   }
 
@@ -81,18 +53,26 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
   }
 
-  .testimonial-card__video {
-    aspect-ratio: 16/9;
+  .testimonial-card__poster {
+    position: relative;
+    aspect-ratio: 9/16;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  .video-placeholder {
+  .testimonial-card__poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .play-btn {
+    position: absolute;
+    inset: 0;
+    margin: auto;
     width: 64px;
     height: 64px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -102,31 +82,8 @@
     transition: transform 0.3s ease, background 0.3s ease;
   }
 
-  .video-placeholder:hover {
+  .play-btn:hover {
     transform: scale(1.1);
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  .testimonial-card__info {
-    padding: 24px;
-    text-align: center;
-  }
-
-  .testimonial-card__info h4 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 4px;
-  }
-
-  .testimonial-card__info p {
-    font-size: 14px;
-    color: var(--color-text-light);
-  }
-
-  @media (max-width: 768px) {
-    .testimonials-carousel__grid {
-      grid-template-columns: 1fr;
-    }
+    background: rgba(255, 255, 255, 0.35);
   }
 </style>

@@ -1,108 +1,47 @@
 ---
+import { media } from '../../data/media';
+
+const { benefits, backgrounds } = media;
+const benefitTitles = [
+  'Queime gordura naturalmente',
+  'Mais energia no seu dia a dia',
+  'Controle sua fome',
+  'Resultados sem sofrimento',
+];
+const benefitTexts = [
+  'Seu metabolismo em alta, até mesmo enquanto você descansa.',
+  'Desperte sua disposição e encare qualquer desafio com vigor.',
+  'Reduza o apetite e evite exageros com uma sensação de saciedade duradoura.',
+  'Emagreça de forma sustentável, sem dietas ou treinos exaustivos.',
+];
+const bg = backgrounds.benefits.desktop;
 ---
 
-<section class="benefits section" id="beneficios" style="background-image: url('https://promo.ozenvitta.com/wp-content/uploads/2025/01/4-DOBRA-OZENPHARMA.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+<section class="benefits section" id="beneficios" style={`background-image: url('${bg}')`}>
   <div class="benefits__overlay"></div>
   
   <div class="container benefits__container">
     <div class="benefits__header text-center">
       <span class="section-label">BENEFÍCIOS</span>
-      <h2 class="section-title">
-        Transforme seu corpo com o OzenVitta 
-      </h2>
-      
-      <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FOLHA.png" 
-        alt="" 
-        class="benefits__leaf"
-        width="60"
-      />
-      
-      <p class="section-subtitle" style="color: white; opacity: 0.9;">
-        Os benefícios que fazem a diferença!
-      </p>
+      <h2 class="section-title">Transforme seu corpo com o OzenVitta</h2>
+      <img src={benefits.leaf} alt="" class="benefits__leaf" width="60" />
+      <p class="section-subtitle benefits__subtitle">Os benefícios que fazem a diferença!</p>
     </div>
 
     <div class="benefits__grid">
-      <div class="benefit-item">
-        <div class="benefit-item__icon-wrapper">
-          <img 
-            src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/FOGO-ICON.png" 
-            alt=""
-            width="40"
-          />
+      {benefits.items.map((item, i) => (
+        <div class="benefit-item">
+          <div class="benefit-item__icon-wrapper">
+            <img src={item.icon} alt="" width="40" />
+          </div>
+          <h3>{benefitTitles[i]}</h3>
+          <img src={item.divider} alt="" class="benefit-divider" width="60" />
+          <p>{benefitTexts[i]}</p>
         </div>
-        <h3>Queime gordura naturalmente</h3>
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" 
-          alt=""
-          class="benefit-divider"
-          width="60"
-        />
-        <p>Seu metabolismo em alta, até mesmo enquanto você descansa.</p>
-      </div>
-
-      <div class="benefit-item">
-        <div class="benefit-item__icon-wrapper">
-          <img 
-            src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/RAIO-ICON.png" 
-            alt=""
-            width="40"
-          />
-        </div>
-        <h3>Mais energia no seu dia a dia</h3>
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" 
-          alt=""
-          class="benefit-divider"
-          width="60"
-        />
-        <p>Desperte sua disposição e encare qualquer desafio com vigor.</p>
-      </div>
-
-      <div class="benefit-item">
-        <div class="benefit-item__icon-wrapper">
-          <img 
-            src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/07.png" 
-            alt=""
-            width="40"
-          />
-        </div>
-        <h3>Controle sua fome</h3>
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" 
-          alt=""
-          class="benefit-divider"
-          width="60"
-        />
-        <p>Reduza o apetite e evite exageros com uma sensação de saciedade duradoura.</p>
-      </div>
-
-      <div class="benefit-item">
-        <div class="benefit-item__icon-wrapper">
-          <img 
-            src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/08.png" 
-            alt=""
-            width="40"
-          />
-        </div>
-        <h3>Resultados sem sofrimento</h3>
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" 
-          alt=""
-          class="benefit-divider"
-          width="60"
-        />
-        <p>Emagreça de forma sustentável, sem dietas ou treinos exaustivos.</p>
-      </div>
+      ))}
     </div>
 
-    <img 
-      src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-1.png" 
-      alt="" 
-      class="benefits__floating animate-float"
-      width="70"
-    />
+    <img src={benefits.floating} alt="" class="benefits__floating animate-float" width="70" />
   </div>
 </section>
 
@@ -113,6 +52,9 @@
     min-height: 80vh;
     display: flex;
     align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   .benefits__overlay {
@@ -121,19 +63,10 @@
     background: linear-gradient(135deg, rgba(36, 110, 178, 0.9) 0%, rgba(36, 53, 111, 0.95) 100%);
   }
 
-  .benefits__container {
-    position: relative;
-    z-index: 1;
-  }
-
-  .benefits__header {
-    margin-bottom: 64px;
-  }
-
-  .benefits__leaf {
-    margin: 16px auto;
-    opacity: 0.8;
-  }
+  .benefits__container { position: relative; z-index: 1; }
+  .benefits__header { margin-bottom: 64px; }
+  .benefits__leaf { margin: 16px auto; opacity: 0.8; }
+  .benefits__subtitle { color: white; opacity: 0.9; }
 
   .benefits__grid {
     display: grid;
@@ -174,16 +107,8 @@
     line-height: 1.3;
   }
 
-  .benefit-divider {
-    margin: 12px auto;
-    opacity: 0.6;
-  }
-
-  .benefit-item p {
-    font-size: 14px;
-    opacity: 0.85;
-    line-height: 1.5;
-  }
+  .benefit-divider { margin: 12px auto; opacity: 0.6; }
+  .benefit-item p { font-size: 14px; opacity: 0.85; line-height: 1.5; }
 
   .benefits__floating {
     position: absolute;
@@ -193,18 +118,12 @@
   }
 
   @media (max-width: 992px) {
-    .benefits__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .benefits__floating {
-      display: none;
-    }
+    .benefits__grid { grid-template-columns: repeat(2, 1fr); }
+    .benefits__floating { display: none; }
+    .benefits { background-attachment: scroll; }
   }
 
   @media (max-width: 576px) {
-    .benefits__grid {
-      grid-template-columns: 1fr;
-    }
+    .benefits__grid { grid-template-columns: 1fr; }
   }
 </style>

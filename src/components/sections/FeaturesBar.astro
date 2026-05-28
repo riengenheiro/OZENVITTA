@@ -1,45 +1,21 @@
 ---
+import { media } from '../../data/media';
 ---
 
 <section class="features-bar">
   <div class="container">
     <div class="features-bar__grid">
-      <div class="feature-box">
-        <div class="feature-box__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
+      {media.featuresBar.map((item) => (
+        <div class="feature-box">
+          <div class="feature-box__icon">
+            <img src={item.icon} alt="" width="32" height="32" />
+          </div>
+          <div class="feature-box__content">
+            <h3 set:html={item.title} />
+            <p>{item.description}</p>
+          </div>
         </div>
-        <div class="feature-box__content">
-          <h3>Compra Segura</h3>
-          <p>Ambiente 100% seguro</p>
-        </div>
-      </div>
-      
-      <div class="feature-box">
-        <div class="feature-box__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-        <div class="feature-box__content">
-          <h3>Entrega Rápida</h3>
-          <p>Enviamos para todo Brasil</p>
-        </div>
-      </div>
-      
-      <div class="feature-box">
-        <div class="feature-box__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
-        </div>
-        <div class="feature-box__content">
-          <h3>Garantia 30 Dias</h3>
-          <p>Satisfação garantida ou dinheiro de volta</p>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -71,13 +47,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent);
     flex-shrink: 0;
-  }
-
-  .feature-box__icon svg {
-    width: 24px;
-    height: 24px;
   }
 
   .feature-box__content h3 {

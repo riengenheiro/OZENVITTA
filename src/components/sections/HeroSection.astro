@@ -1,7 +1,11 @@
 ---
+import { media } from '../../data/media';
+
+const { hero, backgrounds } = media;
+const bg = backgrounds.hero.desktop;
 ---
 
-<section class="hero" id="inicio">
+<section class="hero" id="inicio" style={`background-image: url('${bg}')`}>
   <div class="hero__bg">
     <div class="hero__gradient"></div>
   </div>
@@ -9,7 +13,7 @@
   <div class="container hero__container">
     <div class="hero__content">
       <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/LOGO-OZENVITTA.png" 
+        src={hero.logo}
         alt="OzenVitta Logo" 
         class="hero__logo"
         width="280"
@@ -24,18 +28,12 @@
       </p>
       
       <div class="hero__features">
-        <div class="feature-item">
-          <span class="feature-icon">✓</span>
-          <span>Fórmula 100% Natural</span>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">✓</span>
-          <span>Sem Efeitos Colaterais</span>
-        </div>
-        <div class="feature-item">
-          <span class="feature-icon">✓</span>
-          <span>Entrega para Todo Brasil</span>
-        </div>
+        {hero.features.map((feature) => (
+          <div class="feature-item">
+            <img src={feature.icon} alt="" class="feature-item__icon" width="20" height="20" />
+            <span set:html={feature.title} />
+          </div>
+        ))}
       </div>
       
       <a href="#oferta" class="btn btn--primary btn--pulse">
@@ -46,30 +44,37 @@
     
     <div class="hero__visual">
       <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-1.png" 
+        src={hero.floating[0]}
         alt="" 
         class="hero__floating hero__floating--1 animate-float"
         width="80"
       />
       <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-2.png" 
+        src={hero.floating[2]}
         alt="" 
         class="hero__floating hero__floating--2 animate-float"
         style="animation-delay: 0.5s"
         width="100"
       />
       <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-3.png" 
+        src={hero.floating[1]}
         alt="" 
         class="hero__floating hero__floating--3 animate-float"
         style="animation-delay: 1s"
         width="70"
       />
       <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/POTE-PRINCIPAL.png" 
+        src={hero.product}
         alt="Pote OzenVitta" 
         class="hero__product animate-fade-in-up"
         width="450"
+      />
+      <img 
+        src={hero.productAlt}
+        alt="" 
+        class="hero__product-alt"
+        width="200"
+        aria-hidden="true"
       />
     </div>
   </div>
@@ -83,13 +88,15 @@
     align-items: center;
     overflow: hidden;
     padding: 100px 0 60px;
+    background-size: cover;
+    background-position: center;
   }
 
   .hero__bg {
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(135deg, #246EB2 0%, #24356F 100%);
+    background: linear-gradient(135deg, rgba(36, 110, 178, 0.85) 0%, rgba(36, 53, 111, 0.9) 100%);
   }
 
   .hero__gradient {
@@ -146,17 +153,8 @@
     font-weight: 500;
   }
 
-  .feature-icon {
-    width: 20px;
-    height: 20px;
-    background: var(--color-accent);
-    color: var(--color-dark);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
+  .feature-item__icon {
+    flex-shrink: 0;
   }
 
   .btn--pulse {
@@ -176,6 +174,14 @@
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
   }
 
+  .hero__product-alt {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.9;
+  }
+
   .hero__floating {
     position: absolute;
     z-index: 1;
@@ -183,20 +189,9 @@
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
   }
 
-  .hero__floating--1 {
-    top: 10%;
-    left: 0;
-  }
-
-  .hero__floating--2 {
-    top: 60%;
-    left: -5%;
-  }
-
-  .hero__floating--3 {
-    top: 20%;
-    right: 0;
-  }
+  .hero__floating--1 { top: 10%; left: 0; }
+  .hero__floating--2 { top: 60%; left: -5%; }
+  .hero__floating--3 { top: 20%; right: 0; }
 
   @media (max-width: 992px) {
     .hero__container {
@@ -204,35 +199,16 @@
       text-align: center;
       gap: 40px;
     }
-
-    .hero__logo {
-      margin: 0 auto 24px;
-    }
-
-    .hero__description {
-      margin: 0 auto 32px;
-    }
-
-    .hero__features {
-      justify-content: center;
-    }
-
-    .hero__product {
-      width: 300px;
-    }
-
-    .hero__floating {
-      display: none;
-    }
+    .hero__logo { margin: 0 auto 24px; }
+    .hero__description { margin: 0 auto 32px; }
+    .hero__features { justify-content: center; }
+    .hero__product { width: 300px; }
+    .hero__product-alt { display: none; }
+    .hero__floating { display: none; }
   }
 
   @media (max-width: 768px) {
-    .hero {
-      padding-top: 80px;
-    }
-
-    .hero__product {
-      width: 250px;
-    }
+    .hero { padding-top: 80px; }
+    .hero__product { width: 250px; }
   }
 </style>

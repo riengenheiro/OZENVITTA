@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "generate:media": "node scripts/generate-media.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

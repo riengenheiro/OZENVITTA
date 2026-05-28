@@ -1,127 +1,54 @@
 ---
+import { media } from '../../data/media';
+
+const { pricing, backgrounds } = media;
+const bg = backgrounds.pricing.desktop;
+
+const kits = [
+  { name: 'Pote Único', supply: 'SUPLEMENTO PARA 30 DIAS', installment: 'R$14,76', cash: 'R$147', btnClass: 'btn--primary', popular: false },
+  { name: 'Pacote Econômico', supply: 'SUPLEMENTO PARA 90 DIAS', installment: 'R$19,78', cash: 'R$197', btnClass: 'btn--white', popular: true },
+  { name: 'Pacote Familiar', supply: 'SUPLEMENTO PARA 150 DIAS', installment: 'R$24,80', cash: 'R$247', btnClass: 'btn--primary', popular: false },
+  { name: 'Pacote Máximo', supply: 'SUPLEMENTO PARA 240 DIAS', installment: 'R$37,85', cash: 'R$377', btnClass: 'btn--primary', popular: false },
+];
 ---
 
-<section class="pricing section" id="oferta" style="background-image: url('https://promo.ozenvitta.com/wp-content/uploads/2025/01/4-DOBRA-OZENPHARMA.jpg'); background-size: cover; background-position: center;">
+<section class="pricing section" id="oferta" style={`background-image: url('${bg}')`}>
   <div class="pricing__overlay"></div>
   
   <div class="container pricing__container">
     <div class="pricing__header text-center">
-      <span class="section-label" style="color: white;">KIT OZENVITTA</span>
+      <span class="section-label pricing__label">KIT OZENVITTA</span>
       <h2 class="section-title text-white">
         Escolha seu Kit com <br><span class="text-gradient">Desconto Especial</span>
       </h2>
     </div>
 
     <div class="pricing__grid">
-      <!-- Pote Único -->
-      <div class="pricing-card">
-        <div class="pricing-card__bonus">
-          <h4>Bônus Inclusos</h4>
-          <ul>
-            <li>Acesso ao Aplicativo Premium.</li>
-            <li>Programa de Emagrecimento.</li>
-            <li>Grupo VIP de Apoio.</li>
-          </ul>
+      {kits.map((kit, i) => (
+        <div class:list={['pricing-card', { 'pricing-card--popular': kit.popular }]}>
+          {kit.popular && <div class="pricing-card__badge">MAIS POPULAR</div>}
+          {i === 0 && (
+            <div class="pricing-card__bonus">
+              <h4>Bônus Inclusos</h4>
+              <ul>
+                <li>Acesso ao Aplicativo Premium.</li>
+                <li>Programa de Emagrecimento.</li>
+                <li>Grupo VIP de Apoio.</li>
+              </ul>
+            </div>
+          )}
+          <img src={pricing.pots[i]} alt={kit.name} class="pricing-card__image" width="180" loading="lazy" />
+          <span class="pricing-card__tag" set:html={kit.name.replace(' ', '<br>')} />
+          <div class="pricing-card__supply">{kit.supply}</div>
+          <div class="pricing-card__price">
+            <p class="price-installment">12X <strong>{kit.installment}</strong></p>
+            <p class="price-cash">ou {kit.cash} à vista no pix</p>
+          </div>
+          <a href="#" class:list={['btn', kit.btnClass, 'btn--full']}>
+            ⚡ COMECE A EMAGRECER AGORA
+          </a>
         </div>
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/POTE-UNICO.png" 
-          alt="Pote Único OzenVitta" 
-          class="pricing-card__image"
-          width="180"
-        />
-        <span class="pricing-card__tag">Pote Único</span>
-        <div class="pricing-card__supply">SUPLEMENTO PARA 30 DIAS</div>
-        <div class="pricing-card__price">
-          <p class="price-installment">12X <strong>R$14,76</strong></p>
-          <p class="price-cash">ou R$147 à vista no pix</p>
-        </div>
-        <a href="#" class="btn btn--primary btn--full">
-          ⚡ COMECE A EMAGRECER AGORA
-        </a>
-        <ul class="pricing-card__features">
-          <li>✓ 1 Pote OzenVitta</li>
-          <li>✓ Acesso ao App</li>
-          <li>✓ Garantia 30 dias</li>
-        </ul>
-      </div>
-
-      <!-- Pacote Econômico -->
-      <div class="pricing-card pricing-card--popular">
-        <div class="pricing-card__badge">MAIS POPULAR</div>
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/POTE-KIT-3.png" 
-          alt="Kit com 3 Potes OzenVitta" 
-          class="pricing-card__image"
-          width="200"
-        />
-        <span class="pricing-card__tag">Pacote Econômico</span>
-        <div class="pricing-card__supply">SUPLEMENTO PARA 90 DIAS</div>
-        <div class="pricing-card__price">
-          <p class="price-installment">12X <strong>R$19,78</strong></p>
-          <p class="price-cash">ou R$197 à vista no pix</p>
-        </div>
-        <a href="#" class="btn btn--white btn--full">
-          ⚡ COMECE A EMAGRECER AGORA
-        </a>
-        <ul class="pricing-card__features">
-          <li>✓ 3 Potes OzenVitta</li>
-          <li>✓ Acesso ao App</li>
-          <li>✓ Garantia 30 dias</li>
-          <li>✓ Frete Grátis</li>
-        </ul>
-      </div>
-
-      <!-- Pacote Familiar -->
-      <div class="pricing-card">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/POTE-KIT-5.png" 
-          alt="Kit com 5 Potes OzenVitta" 
-          class="pricing-card__image"
-          width="200"
-        />
-        <span class="pricing-card__tag">Pacote Familiar</span>
-        <div class="pricing-card__supply">SUPLEMENTO PARA 150 DIAS</div>
-        <div class="pricing-card__price">
-          <p class="price-installment">12X <strong>R$24,80</strong></p>
-          <p class="price-cash">ou R$247 à vista no pix</p>
-        </div>
-        <a href="#" class="btn btn--primary btn--full">
-          ⚡ COMECE A EMAGRECER AGORA
-        </a>
-        <ul class="pricing-card__features">
-          <li>✓ 5 Potes OzenVitta</li>
-          <li>✓ Acesso ao App</li>
-          <li>✓ Garantia 30 dias</li>
-          <li>✓ Frete Grátis</li>
-          <li>✓ Brinde Exclusivo</li>
-        </ul>
-      </div>
-
-      <!-- Pacote Máximo -->
-      <div class="pricing-card">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/POTE-KIT-8.png" 
-          alt="Kit com 8 Potes OzenVitta" 
-          class="pricing-card__image"
-          width="200"
-        />
-        <span class="pricing-card__tag">Pacote Máximo</span>
-        <div class="pricing-card__supply">SUPLEMENTO PARA 240 DIAS</div>
-        <div class="pricing-card__price">
-          <p class="price-installment">12X <strong>R$37,85</strong></p>
-          <p class="price-cash">ou R$377 à vista no pix</p>
-        </div>
-        <a href="#" class="btn btn--primary btn--full">
-          ⚡ COMECE A EMAGRECER AGORA
-        </a>
-        <ul class="pricing-card__features">
-          <li>✓ 8 Potes OzenVitta</li>
-          <li>✓ Acesso ao App</li>
-          <li>✓ Garantia 30 dias</li>
-          <li>✓ Frete Grátis</li>
-          <li>✓ 2 Brindes Exclusivos</li>
-        </ul>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -130,6 +57,8 @@
   .pricing {
     position: relative;
     min-height: 100vh;
+    background-size: cover;
+    background-position: center;
   }
 
   .pricing__overlay {
@@ -138,14 +67,9 @@
     background: linear-gradient(135deg, rgba(36, 110, 178, 0.95) 0%, rgba(36, 53, 111, 0.98) 100%);
   }
 
-  .pricing__container {
-    position: relative;
-    z-index: 1;
-  }
-
-  .pricing__header {
-    margin-bottom: 64px;
-  }
+  .pricing__container { position: relative; z-index: 1; }
+  .pricing__header { margin-bottom: 64px; }
+  .pricing__label { color: white; }
 
   .pricing__grid {
     display: grid;
@@ -175,10 +99,6 @@
     border: 2px solid var(--color-accent);
   }
 
-  .pricing-card--popular:hover {
-    transform: scale(1.05) translateY(-8px);
-  }
-
   .pricing-card__badge {
     position: absolute;
     top: -12px;
@@ -191,7 +111,6 @@
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
 
   .pricing-card__bonus {
@@ -201,46 +120,12 @@
     padding: 16px;
     margin-bottom: 16px;
     text-align: left;
-  }
-
-  .pricing-card__bonus h4 {
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .pricing-card__bonus ul {
     font-size: 12px;
-    opacity: 0.9;
   }
 
-  .pricing-card__bonus li {
-    margin-bottom: 4px;
-    padding-left: 12px;
-    position: relative;
-  }
-
-  .pricing-card__bonus li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-  }
-
-  .pricing-card__image {
-    margin: 0 auto 16px;
-    height: 180px;
-    object-fit: contain;
-  }
-
-  .pricing-card__tag {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-text-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-
+  .pricing-card__bonus h4 { font-size: 14px; margin-bottom: 8px; }
+  .pricing-card__image { margin: 0 auto 16px; height: 180px; object-fit: contain; }
+  .pricing-card__tag { font-size: 14px; font-weight: 600; color: var(--color-text-light); text-transform: uppercase; margin-bottom: 8px; }
   .pricing-card__supply {
     background: var(--color-dark);
     color: white;
@@ -252,56 +137,16 @@
     display: inline-block;
   }
 
-  .pricing-card__price {
-    margin-bottom: 20px;
-  }
-
-  .price-installment {
-    font-size: 16px;
-    color: var(--color-text-light);
-    margin-bottom: 4px;
-  }
-
-  .price-installment strong {
-    font-size: 32px;
-    color: var(--color-secondary);
-    font-weight: 800;
-  }
-
-  .price-cash {
-    font-size: 14px;
-    color: var(--color-text-light);
-  }
-
-  .pricing-card__features {
-    margin-top: 20px;
-    text-align: left;
-    font-size: 13px;
-    color: var(--color-text-light);
-  }
-
-  .pricing-card__features li {
-    margin-bottom: 8px;
-    padding-left: 4px;
-  }
+  .price-installment { font-size: 16px; color: var(--color-text-light); margin-bottom: 4px; }
+  .price-installment strong { font-size: 32px; color: var(--color-secondary); font-weight: 800; }
+  .price-cash { font-size: 14px; color: var(--color-text-light); margin-bottom: 20px; }
 
   @media (max-width: 1200px) {
-    .pricing__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pricing-card--popular {
-      transform: scale(1);
-    }
-
-    .pricing-card--popular:hover {
-      transform: scale(1) translateY(-8px);
-    }
+    .pricing__grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-card--popular { transform: scale(1); }
   }
 
   @media (max-width: 576px) {
-    .pricing__grid {
-      grid-template-columns: 1fr;
-    }
+    .pricing__grid { grid-template-columns: 1fr; }
   }
 </style>

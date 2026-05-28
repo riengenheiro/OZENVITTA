@@ -1,7 +1,22 @@
 ---
+import { media } from '../../data/media';
+
+const { app, backgrounds } = media;
+const bg = backgrounds.app;
+
+const appFeatures = [
+  { title: 'Aulas com Nutricionista:', text: 'Receba orientações sobre alimentação saudável e dicas práticas.' },
+  { title: 'Treinos com Personal:', text: 'Aulas em vídeo práticas para você treinar em casa ou na academia.' },
+  { title: 'Grupo de Apoio:', text: 'Conecte-se com outras mulheres na mesma jornada de transformação.' },
+  { title: 'Conteúdo Exclusivo:', text: 'O app é constantemente atualizado com dicas, vídeos e novidades.' },
+];
 ---
 
-<section class="app-section section" id="aplicativo" style="background-image: url('https://promo.ozenvitta.com/wp-content/uploads/2025/01/BACKGROUND-APP.png'); background-size: cover; background-position: center;">
+<section 
+  class="app-section section" 
+  id="aplicativo"
+  style={`--bg-desktop: url('${bg.desktop}'); --bg-mobile: url('${bg.mobile || bg.desktop}')`}
+>
   <div class="container app-section__container">
     <div class="app-section__content">
       <div class="app-section__header">
@@ -16,61 +31,44 @@
       </div>
 
       <div class="app-features">
-        <div class="app-feature">
-          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-          <h3>Aulas com Nutricionista:</h3>
-          <p>Receba orientações sobre alimentação saudável e dicas práticas.</p>
-        </div>
-
-        <div class="app-feature">
-          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-          <h3>Treinos com Personal:</h3>
-          <p>Aulas em vídeo práticas para você treinar em casa ou na academia.</p>
-        </div>
-
-        <div class="app-feature">
-          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-          <h3>Grupo de Apoio:</h3>
-          <p>Conecte-se com outras mulheres na mesma jornada de transformação.</p>
-        </div>
-
-        <div class="app-feature">
-          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-          <h3>Conteúdo Exclusivo:</h3>
-          <p>O app é constantemente atualizado com dicas, vídeos e novidades.</p>
-        </div>
+        {appFeatures.map((feature) => (
+          <div class="app-feature">
+            <img src={app.bullets} alt="" width="40" />
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </div>
+        ))}
       </div>
     </div>
 
     <div class="app-section__visual">
-      <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/APLICATIVO.png" 
-        alt="Aplicativo OzenVitta" 
-        class="app-mockup"
-        width="400"
-      />
-      <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-1.png" 
-        alt="" 
-        class="floating-left animate-float"
-        width="60"
-      />
-      <img 
-        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-2.png" 
-        alt="" 
-        class="floating-right animate-float"
-        style="animation-delay: 0.5s"
-        width="80"
-      />
+      <img src={app.mockup} alt="Aplicativo OzenVitta" class="app-mockup" width="400" loading="lazy" />
+      {app.floating.map((src, i) => (
+        <img 
+          src={src} 
+          alt="" 
+          class={`app-floating app-floating--${i + 1} animate-float`}
+          style={i === 1 ? 'animation-delay: 0.5s' : undefined}
+          width={i === 0 ? 60 : 80}
+          loading="lazy"
+        />
+      ))}
     </div>
   </div>
 </section>
 
 <style>
   .app-section {
+    background-image: var(--bg-desktop);
+    background-size: cover;
+    background-position: center;
     min-height: 80vh;
     display: flex;
     align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .app-section { background-image: var(--bg-mobile); }
   }
 
   .app-section__container {
@@ -80,9 +78,7 @@
     align-items: center;
   }
 
-  .app-section__header {
-    margin-bottom: 48px;
-  }
+  .app-section__header { margin-bottom: 48px; }
 
   .app-section__intro {
     font-size: 18px;
@@ -91,32 +87,11 @@
     max-width: 500px;
   }
 
-  .app-features {
-    display: grid;
-    gap: 24px;
-  }
+  .app-features { display: grid; gap: 24px; }
 
-  .app-feature {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .app-feature img {
-    margin-bottom: 4px;
-  }
-
-  .app-feature h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-dark);
-  }
-
-  .app-feature p {
-    font-size: 15px;
-    color: var(--color-text-light);
-    line-height: 1.5;
-  }
+  .app-feature { display: flex; flex-direction: column; gap: 8px; }
+  .app-feature h3 { font-size: 18px; font-weight: 700; color: var(--color-dark); }
+  .app-feature p { font-size: 15px; color: var(--color-text-light); line-height: 1.5; }
 
   .app-section__visual {
     position: relative;
@@ -131,43 +106,18 @@
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
   }
 
-  .floating-left {
-    position: absolute;
-    left: 0;
-    top: 20%;
-    opacity: 0.6;
-  }
-
-  .floating-right {
-    position: absolute;
-    right: 0;
-    bottom: 20%;
-    opacity: 0.6;
-  }
+  .app-floating { position: absolute; opacity: 0.6; }
+  .app-floating--1 { left: 0; top: 20%; }
+  .app-floating--2 { right: 0; bottom: 20%; }
 
   @media (max-width: 992px) {
-    .app-section__container {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .app-section__visual {
-      order: -1;
-    }
-
-    .app-mockup {
-      width: 300px;
-    }
-
-    .floating-left,
-    .floating-right {
-      display: none;
-    }
+    .app-section__container { grid-template-columns: 1fr; gap: 40px; }
+    .app-section__visual { order: -1; }
+    .app-mockup { width: 300px; }
+    .app-floating { display: none; }
   }
 
   @media (max-width: 768px) {
-    .app-mockup {
-      width: 250px;
-    }
+    .app-mockup { width: 250px; }
   }
 </style>

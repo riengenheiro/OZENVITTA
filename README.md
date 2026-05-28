@@ -57,12 +57,19 @@ npm run build
 npm run preview
 ```
 
-### Imagens
+### Imagens e mídia
 
-As imagens são carregadas do servidor WordPress original:
-- `https://promo.ozenvitta.com/wp-content/uploads/...`
+Todas as URLs vêm do `Template 2025.json` e ficam centralizadas em `src/data/media.ts`.
 
-Para otimizar, recomenda-se fazer download das imagens e colocar na pasta `public/images/`.
+Para atualizar após mudar o template Elementor:
+
+```bash
+npm run generate:media
+```
+
+As imagens são servidas de `promo.ozenvitta.com` (e alguns fundos mobile de `guilhermeocarvalho.com.br`, conforme o JSON original).
+
+Os depoimentos em vídeo do template usam **thumbnails** (carrossel de imagens); não há URLs `.mp4` no JSON exportado.
 
 ---
 

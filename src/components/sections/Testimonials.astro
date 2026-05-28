@@ -1,7 +1,15 @@
 ---
+import { media } from '../../data/media';
+
+const { testimonials, backgrounds } = media;
+const bg = backgrounds.testimonials;
 ---
 
-<section class="testimonials section" id="depoimentos" style="background-image: url('https://promo.ozenvitta.com/wp-content/uploads/2025/01/5-DOBRA-OZENPHARMA.jpg'); background-size: cover; background-position: center;">
+<section 
+  class="testimonials section" 
+  id="depoimentos"
+  style={`--bg-desktop: url('${bg.desktop}'); --bg-mobile: url('${bg.mobile || bg.desktop}')`}
+>
   <div class="testimonials__overlay"></div>
   
   <div class="container testimonials__container">
@@ -13,64 +21,32 @@
     </div>
 
     <div class="testimonials__grid">
-      <div class="testimonial-item">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/DP-1.png" 
-          alt="Depoimento"
-          class="testimonial-image"
-        />
-      </div>
-      <div class="testimonial-item">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/Group-68.png" 
-          alt="Depoimento"
-          class="testimonial-image"
-        />
-      </div>
-      <div class="testimonial-item">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/DP-3.png" 
-          alt="Depoimento"
-          class="testimonial-image"
-        />
-      </div>
-      <div class="testimonial-item">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/Group-69.png" 
-          alt="Depoimento"
-          class="testimonial-image"
-        />
-      </div>
-      <div class="testimonial-item">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/Group-70.png" 
-          alt="Depoimento"
-          class="testimonial-image"
-        />
-      </div>
-      <div class="testimonial-item">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/DP-6.png" 
-          alt="Depoimento"
-          class="testimonial-image"
-        />
-      </div>
+      {testimonials.map((src) => (
+        <div class="testimonial-item">
+          <img src={src} alt="Depoimento OzenVitta" class="testimonial-image" loading="lazy" />
+        </div>
+      ))}
     </div>
 
-    <div class="text-center" style="margin-top: 48px; position: relative; z-index: 1;">
-      <a href="#oferta" class="btn btn--primary">
-        Quero emagrecer
-      </a>
+    <div class="text-center testimonials__cta">
+      <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
     </div>
   </div>
 </section>
 
 <style>
   .testimonials {
+    background-image: var(--bg-desktop);
+    background-size: cover;
+    background-position: center;
     position: relative;
     min-height: 80vh;
     display: flex;
     align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials { background-image: var(--bg-mobile); }
   }
 
   .testimonials__overlay {
@@ -79,14 +55,9 @@
     background: linear-gradient(180deg, rgba(17, 25, 52, 0.95) 0%, rgba(17, 25, 52, 0.85) 100%);
   }
 
-  .testimonials__container {
-    position: relative;
-    z-index: 1;
-  }
-
-  .testimonials__header {
-    margin-bottom: 64px;
-  }
+  .testimonials__container { position: relative; z-index: 1; }
+  .testimonials__header { margin-bottom: 64px; }
+  .testimonials__cta { margin-top: 48px; position: relative; z-index: 1; }
 
   .testimonials__grid {
     display: grid;
@@ -101,25 +72,14 @@
     transition: transform 0.3s ease;
   }
 
-  .testimonial-item:hover {
-    transform: translateY(-8px);
-  }
-
-  .testimonial-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
+  .testimonial-item:hover { transform: translateY(-8px); }
+  .testimonial-image { width: 100%; height: auto; object-fit: cover; }
 
   @media (max-width: 992px) {
-    .testimonials__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 576px) {
-    .testimonials__grid {
-      grid-template-columns: 1fr;
-    }
+    .testimonials__grid { grid-template-columns: 1fr; }
   }
 </style>

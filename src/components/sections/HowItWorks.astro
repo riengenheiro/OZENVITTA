@@ -1,7 +1,21 @@
 ---
+import { media } from '../../data/media';
+
+const { howItWorks, backgrounds } = media;
+const bg = backgrounds.howItWorks;
+const stepTexts = [
+  'Fibras de Chia e Psyllium prolongam a saciedade e reduzem o apetite.',
+  'Ação da Laranja Moro e L-Carnitina.',
+  'Ingredientes como Quitosana e Inulina regulam a digestão e reduzem o inchaço.',
+  'Componentes que irão dar mais vitalidade no dia a dia.',
+];
 ---
 
-<section class="how-it-works section" id="como-funciona">
+<section 
+  class="how-it-works section" 
+  id="como-funciona"
+  style={`--bg-desktop: url('${bg.desktop}'); --bg-mobile: url('${bg.mobile || bg.desktop}')`}
+>
   <div class="container">
     <div class="how-it-works__header text-center">
       <span class="section-label">EMAGRECER</span>
@@ -14,83 +28,40 @@
     </div>
 
     <div class="how-it-works__grid">
-      <div class="benefit-card">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/01.png" 
-          alt="Ícone" 
-          class="benefit-card__icon"
-          width="80"
-        />
-        <h3>Reduz a fome e o <br> desejo por doces:</h3>
-        <p>Fibras de Chia e Psyllium prolongam a saciedade e reduzem o apetite.</p>
-      </div>
-
-      <div class="benefit-card">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/02.png" 
-          alt="Ícone" 
-          class="benefit-card__icon"
-          width="80"
-        />
-        <h3>Acelera o metabolismo <br>e queima gordura:</h3>
-        <p>Ação da Laranja Moro e L-Carnitina.</p>
-      </div>
-
-      <div class="benefit-card">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/03.png" 
-          alt="Ícone" 
-          class="benefit-card__icon"
-          width="80"
-        />
-        <h3>Combate o inchaço e retenção de líquidos:</h3>
-        <p>Ingredientes como Quitosana e Inulina regulam a digestão e reduzem o inchaço.</p>
-      </div>
-
-      <div class="benefit-card">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/04.png" 
-          alt="Ícone" 
-          class="benefit-card__icon"
-          width="80"
-        />
-        <h3>Auxilia no aumento<br> da energia:</h3>
-        <p>Componentes que irão dar mais vitalidade no dia a dia.</p>
-      </div>
+      {howItWorks.steps.map((step, i) => (
+        <div class="benefit-card">
+          <img src={step.image} alt="" class="benefit-card__icon" width="80" />
+          <h3 set:html={step.title} />
+          <p>{stepTexts[i]}</p>
+        </div>
+      ))}
     </div>
 
     <div class="text-center" style="margin-top: 48px;">
-      <a href="#oferta" class="btn btn--primary">
-        Quero emagrecer
-      </a>
+      <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
     </div>
   </div>
 
-  <img 
-    src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-1.png" 
-    alt="" 
-    class="floating-decoration floating--left animate-float"
-    width="60"
-  />
-  <img 
-    src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-2.png" 
-    alt="" 
-    class="floating-decoration floating--right animate-float"
-    style="animation-delay: 0.5s"
-    width="80"
-  />
+  <img src={howItWorks.floating[0]} alt="" class="floating-decoration floating--left animate-float" width="60" />
+  <img src={howItWorks.floating[1]} alt="" class="floating-decoration floating--right animate-float" style="animation-delay: 0.5s" width="80" />
 </section>
 
 <style>
   .how-it-works {
-    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+    background-image: var(--bg-desktop);
+    background-size: cover;
+    background-position: center;
     position: relative;
     overflow: hidden;
   }
 
-  .how-it-works__header {
-    margin-bottom: 64px;
+  @media (max-width: 768px) {
+    .how-it-works {
+      background-image: var(--bg-mobile);
+    }
   }
+
+  .how-it-works__header { margin-bottom: 64px; }
 
   .how-it-works__grid {
     display: grid;
@@ -112,9 +83,7 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
   }
 
-  .benefit-card__icon {
-    margin: 0 auto 20px;
-  }
+  .benefit-card__icon { margin: 0 auto 20px; }
 
   .benefit-card h3 {
     font-size: 18px;
@@ -130,34 +99,16 @@
     line-height: 1.5;
   }
 
-  .floating-decoration {
-    position: absolute;
-    opacity: 0.6;
-  }
-
-  .floating--left {
-    left: 5%;
-    top: 50%;
-  }
-
-  .floating--right {
-    right: 5%;
-    bottom: 20%;
-  }
+  .floating-decoration { position: absolute; opacity: 0.6; }
+  .floating--left { left: 5%; top: 50%; }
+  .floating--right { right: 5%; bottom: 20%; }
 
   @media (max-width: 992px) {
-    .how-it-works__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .how-it-works__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 576px) {
-    .how-it-works__grid {
-      grid-template-columns: 1fr;
-    }
-
-    .floating-decoration {
-      display: none;
-    }
+    .how-it-works__grid { grid-template-columns: 1fr; }
+    .floating-decoration { display: none; }
   }
 </style>

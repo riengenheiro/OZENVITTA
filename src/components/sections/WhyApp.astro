@@ -1,66 +1,50 @@
 ---
+import { media } from '../../data/media';
+
+const { whyApp } = media;
+
+const features = [
+  { title: 'Acompanhamento Completo:', text: 'Receba orientações sobre alimentação saudável e exercícios.' },
+  { title: 'Praticidade no Seu Dia a Dia:', text: 'Conteúdos acessíveis pelo celular, a qualquer hora e lugar.' },
+  { title: 'Resultados Reais e Sustentáveis:', text: 'Tenha todas as ferramentas para transformar seu corpo e mente.' },
+];
 ---
 
 <section class="why-app section" id="por-que-app">
   <div class="container">
     <div class="why-app__grid">
       <div class="why-app__visual">
-        <img 
-          src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/IMAGE-APP.png" 
-          alt="Mulher usando o aplicativo OzenVitta" 
-          class="why-app__image"
-          width="500"
-        />
+        <img src={whyApp.image} alt="Mulher usando o aplicativo OzenVitta" class="why-app__image" width="500" loading="lazy" />
       </div>
 
       <div class="why-app__content">
         <span class="section-label">SEU ALIADO</span>
-        <h2 class="section-title">
-          Por que o App OzenVitta é o seu aliado?
-        </h2>
+        <h2 class="section-title">Por que o App OzenVitta é o seu aliado?</h2>
 
         <div class="why-app__features">
-          <div class="why-feature">
-            <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-            <div>
-              <h3>Acompanhamento Completo:</h3>
-              <p>Receba orientações sobre alimentação saudável e exercícios.</p>
+          {features.map((feature) => (
+            <div class="why-feature">
+              <img src={whyApp.bullets} alt="" width="40" />
+              <div>
+                <h3>{feature.title}</h3>
+                <p>{feature.text}</p>
+              </div>
             </div>
-          </div>
-
-          <div class="why-feature">
-            <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-            <div>
-              <h3>Praticidade no <br>Seu Dia a Dia:</h3>
-              <p>Conteúdos acessíveis pelo celular, a qualquer hora e lugar.</p>
-            </div>
-          </div>
-
-          <div class="why-feature">
-            <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
-            <div>
-              <h3>Resultados Reais<br> e Sustentáveis:</h3>
-              <p>Tenha todas as ferramentas para transformar seu corpo e mente.</p>
-            </div>
-          </div>
+          ))}
         </div>
 
         <p class="why-app__highlight">
           Tudo isso de forma <strong>GRATUITA</strong> ao adquirir o seu OzenVitta!
         </p>
 
-        <a href="#oferta" class="btn btn--primary">
-          Quero emagrecer
-        </a>
+        <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .why-app {
-    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
-  }
+  .why-app { background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%); }
 
   .why-app__grid {
     display: grid;
@@ -69,84 +53,29 @@
     align-items: center;
   }
 
-  .why-app__visual {
-    display: flex;
-    justify-content: center;
-  }
+  .why-app__visual { display: flex; justify-content: center; }
 
   .why-app__image {
     border-radius: 24px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   }
 
-  .why-app__content {
-    max-width: 500px;
-  }
+  .why-app__content { max-width: 500px; }
+  .why-app__features { display: grid; gap: 24px; margin: 40px 0; }
 
-  .why-app__features {
-    display: grid;
-    gap: 24px;
-    margin: 40px 0;
-  }
+  .why-feature { display: flex; gap: 16px; align-items: flex-start; }
+  .why-feature img { flex-shrink: 0; }
+  .why-feature h3 { font-size: 18px; font-weight: 700; color: var(--color-dark); margin-bottom: 8px; }
+  .why-feature p { font-size: 15px; color: var(--color-text-light); line-height: 1.5; }
 
-  .why-feature {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .why-feature img {
-    flex-shrink: 0;
-  }
-
-  .why-feature h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 8px;
-  }
-
-  .why-feature p {
-    font-size: 15px;
-    color: var(--color-text-light);
-    line-height: 1.5;
-  }
-
-  .why-app__highlight {
-    font-size: 18px;
-    color: var(--color-text);
-    margin-bottom: 24px;
-  }
-
-  .why-app__highlight strong {
-    color: var(--color-secondary);
-    font-weight: 700;
-  }
+  .why-app__highlight { font-size: 18px; margin-bottom: 24px; }
+  .why-app__highlight strong { color: var(--color-secondary); font-weight: 700; }
 
   @media (max-width: 992px) {
-    .why-app__grid {
-      grid-template-columns: 1fr;
-      gap: 48px;
-      text-align: center;
-    }
-
-    .why-app__visual {
-      order: -1;
-    }
-
-    .why-app__image {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .why-app__content {
-      max-width: 100%;
-    }
-
-    .why-feature {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    .why-app__grid { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+    .why-app__visual { order: -1; }
+    .why-app__image { width: 100%; max-width: 400px; }
+    .why-app__content { max-width: 100%; }
+    .why-feature { flex-direction: column; align-items: center; text-align: center; }
   }
 </style>
