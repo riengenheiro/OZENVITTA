@@ -41,6 +41,17 @@ O site possui 17 seções principais:
 - **Accent:** #6FFFDD (Turquesa claro)
 - **Escuro:** #111934 (Fundo escuro)
 
+### Git e deploy
+
+- **Branch única:** `main` (produção no Cloudflare Pages).
+- Push apenas para `main`:
+
+```bash
+git push origin main
+```
+
+- Não usar a branch `master` (foi descontinuada).
+
 ### Comandos
 
 ```bash
