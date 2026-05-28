@@ -5,10 +5,39 @@ const { pricing, backgrounds } = media;
 const bg = backgrounds.pricing.desktop;
 
 const kits = [
-  { name: 'Pote Único', supply: 'SUPLEMENTO PARA 30 DIAS', installment: 'R$14,76', cash: 'R$147', btnClass: 'btn--primary', popular: false },
-  { name: 'Pacote Econômico', supply: 'SUPLEMENTO PARA 90 DIAS', installment: 'R$19,78', cash: 'R$197', btnClass: 'btn--white', popular: true },
-  { name: 'Pacote Familiar', supply: 'SUPLEMENTO PARA 150 DIAS', installment: 'R$24,80', cash: 'R$247', btnClass: 'btn--primary', popular: false },
-  { name: 'Pacote Máximo', supply: 'SUPLEMENTO PARA 240 DIAS', installment: 'R$37,85', cash: 'R$377', btnClass: 'btn--primary', popular: false },
+  {
+    name: 'Pote Único',
+    pots: 1,
+    image: pricing.pots[0],
+    supply: 'SUPLEMENTO PARA 30 DIAS',
+    installment: 'R$14,76',
+    cash: 'R$147',
+    checkout: 'https://app.monetizze.com.br/r/ACL25792886?u=c&pl=HV290570',
+    btnClass: 'btn--primary',
+    popular: false,
+  },
+  {
+    name: 'Pacote Econômico',
+    pots: 3,
+    image: pricing.pots[1],
+    supply: 'SUPLEMENTO PARA 90 DIAS',
+    installment: 'R$19,78',
+    cash: 'R$197',
+    checkout: 'https://app.monetizze.com.br/r/ACL25792886?u=c&pl=DS290571',
+    btnClass: 'btn--white',
+    popular: true,
+  },
+  {
+    name: 'Pacote Familiar',
+    pots: 5,
+    image: pricing.pots[2],
+    supply: 'SUPLEMENTO PARA 150 DIAS',
+    installment: 'R$24,80',
+    cash: 'R$247',
+    checkout: 'https://app.monetizze.com.br/r/ACL25792886?u=c&pl=NT290572',
+    btnClass: 'btn--primary',
+    popular: false,
+  },
 ];
 ---
 
@@ -17,10 +46,25 @@ const kits = [
   
   <div class="container pricing__container">
     <div class="pricing__header text-center">
-      <span class="section-label pricing__label">KIT OZENVITTA</span>
+      <span class="section-label pricing__label">SUA OPORTUNIDADE</span>
       <h2 class="section-title text-white">
-        Escolha seu Kit com <br><span class="text-gradient">Desconto Especial</span>
+        Quanto vale <span class="text-gradient">transformar sua vida?</span>
       </h2>
+      
+      <div class="pricing__buildup letter-block letter-block--white text-center short-lines">
+        <p>Pense comigo...</p>
+        <p>&nbsp;</p>
+        <p>Uma consulta com nutricionista custa R$200 a R$500.</p>
+        <p>Um personal trainer, R$150 por mês.</p>
+        <p>Remédios para emagrecer, R$300 ou mais.</p>
+        <p>&nbsp;</p>
+        <p>E mesmo assim... <strong>nenhuma garantia de resultado.</strong></p>
+        <p>&nbsp;</p>
+        <p>Com o OzenVitta, você investe uma fração desse valor.</p>
+        <p>E tem <strong>30 dias de garantia total.</strong></p>
+        <p>&nbsp;</p>
+        <p>Veja as opções:</p>
+      </div>
     </div>
 
     <div class="pricing__grid">
@@ -37,15 +81,15 @@ const kits = [
               </ul>
             </div>
           )}
-          <img src={pricing.pots[i]} alt={kit.name} class="pricing-card__image" width="180" loading="lazy" />
+          <img src={kit.image} alt={`${kit.pots} ${kit.pots === 1 ? 'pote' : 'potes'} OzenVitta`} class="pricing-card__image" width="180" loading="lazy" />
           <span class="pricing-card__tag" set:html={kit.name.replace(' ', '<br>')} />
           <div class="pricing-card__supply">{kit.supply}</div>
           <div class="pricing-card__price">
             <p class="price-installment">12X <strong>{kit.installment}</strong></p>
             <p class="price-cash">ou {kit.cash} à vista no pix</p>
           </div>
-          <a href="#" class:list={['btn', kit.btnClass, 'btn--full']}>
-            ⚡ COMECE A EMAGRECER AGORA
+          <a href={kit.checkout} class:list={['btn', kit.btnClass, 'btn--full']} target="_blank" rel="noopener noreferrer">
+            ⚡ QUERO TRANSFORMAR MEU CORPO
           </a>
         </div>
       ))}
@@ -69,12 +113,27 @@ const kits = [
 
   .pricing__container { position: relative; z-index: 1; }
   .pricing__header { margin-bottom: 64px; }
+
+  .pricing__buildup {
+    margin-top: 24px;
+  }
+
+  .pricing__buildup p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .pricing__buildup strong {
+    color: var(--color-accent);
+  }
   .pricing__label { color: white; }
 
   .pricing__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   .pricing-card {
@@ -141,8 +200,8 @@ const kits = [
   .price-installment strong { font-size: 32px; color: var(--color-secondary); font-weight: 800; }
   .price-cash { font-size: 14px; color: var(--color-text-light); margin-bottom: 20px; }
 
-  @media (max-width: 1200px) {
-    .pricing__grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 992px) {
+    .pricing__grid { grid-template-columns: 1fr; max-width: 400px; }
     .pricing-card--popular { transform: scale(1); }
   }
 
