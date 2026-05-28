@@ -41,6 +41,13 @@ const { footer } = media;
 
     <div class="footer__bottom">
       <p>&copy; 2025 OzenVitta. Todos os direitos reservados.</p>
+      <p class="footer__legal">
+        <a href="https://ozenvitta.com/politica-de-privacidade/" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+        <span class="divider">|</span>
+        <a href="https://ozenvitta.com/termos-e-condicoes/" target="_blank" rel="noopener noreferrer">Termos e Condições</a>
+        <span class="divider">|</span>
+        <a href="#garantia">Garantia de 30 Dias</a>
+      </p>
       <p>Este site não é afiliado ao Facebook, Instagram ou Google.</p>
     </div>
   </div>
@@ -81,6 +88,30 @@ const { footer } = media;
   }
 
   .footer__bottom p { font-size: 12px; opacity: 0.6; margin-bottom: 8px; }
+
+  .footer__legal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .footer__legal a {
+    color: var(--color-accent);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+  }
+
+  .footer__legal a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .footer__legal .divider {
+    opacity: 0.4;
+  }
 
   @media (max-width: 992px) {
     .footer__grid { grid-template-columns: repeat(2, 1fr); }
