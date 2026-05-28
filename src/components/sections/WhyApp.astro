@@ -18,8 +18,15 @@ const features = [
       </div>
 
       <div class="why-app__content">
-        <span class="section-label">SEU ALIADO</span>
-        <h2 class="section-title">Por que o App OzenVitta é o seu aliado?</h2>
+        <span class="section-label">SUPORTE COMPLETO</span>
+        <h2 class="section-title">Você não vai estar sozinha <span class="text-gradient">nessa jornada.</span></h2>
+
+        <div class="why-app__narrative short-lines">
+          <p>Emagrecer sozinha é difícil.</p>
+          <p>A gente sabe disso.</p>
+          <p>&nbsp;</p>
+          <p>Por isso, com o app você tem:</p>
+        </div>
 
         <div class="why-app__features">
           {features.map((feature) => (
@@ -34,10 +41,10 @@ const features = [
         </div>
 
         <p class="why-app__highlight">
-          Tudo isso de forma <strong>GRATUITA</strong> ao adquirir o seu OzenVitta!
+          Tudo isso <strong>100% GRATUITO</strong> quando você garante o seu OzenVitta hoje.
         </p>
 
-        <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
+        <a href="#oferta" class="btn btn--primary">Quero garantir o meu</a>
       </div>
     </div>
   </div>
@@ -61,6 +68,17 @@ const features = [
   }
 
   .why-app__content { max-width: 500px; }
+
+  .why-app__narrative {
+    margin-bottom: 16px;
+  }
+
+  .why-app__narrative p {
+    font-size: 18px;
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
   .why-app__features { display: grid; gap: 24px; margin: 40px 0; }
 
   .why-feature { display: flex; gap: 16px; align-items: flex-start; }

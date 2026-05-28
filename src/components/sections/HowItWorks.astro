@@ -17,14 +17,24 @@ const stepTexts = [
   style={`--bg-desktop: url('${bg.desktop}'); --bg-mobile: url('${bg.mobile || bg.desktop}')`}
 >
   <div class="container">
-    <div class="how-it-works__header text-center">
-      <span class="section-label">EMAGRECER</span>
+    <div class="how-it-works__story letter-block text-center">
+      <span class="section-label">A VERDADE SOBRE EMAGRECER</span>
       <h2 class="section-title">
-        Como o <span class="text-gradient">OzenVitta</span> te ajuda a emagrecer?
+        Por que nada funcionou <span class="text-gradient">até agora?</span>
       </h2>
-      <p class="section-subtitle">
-        O OzenVitta atua diretamente nas principais causas do ganho de peso, ajudando você a conquistar o corpo dos seus sonhos de forma saudável.
-      </p>
+      
+      <div class="short-lines" style="margin-bottom: 48px;">
+        <p>Você já fez dieta restritiva.</p>
+        <p>Já cortou o carboidrato. Já passou fome.</p>
+        <p>Já comprou chá, cápsula, shake...</p>
+        <p>E no final, o peso sempre voltou.</p>
+        <p>&nbsp;</p>
+        <p>Não é culpa sua.</p>
+        <p>&nbsp;</p>
+        <p>O problema é que <strong>nenhuma dessas soluções</strong> ataca<br>
+        as 4 causas reais do ganho de peso.</p>
+        <p>O OzenVitta ataca todas elas. <strong>Ao mesmo tempo.</strong></p>
+      </div>
     </div>
 
     <div class="how-it-works__grid">
@@ -38,7 +48,7 @@ const stepTexts = [
     </div>
 
     <div class="text-center" style="margin-top: 48px;">
-      <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
+      <a href="#oferta" class="btn btn--primary">Quero resolver isso agora</a>
     </div>
   </div>
 
@@ -61,7 +71,17 @@ const stepTexts = [
     }
   }
 
-  .how-it-works__header { margin-bottom: 64px; }
+  .how-it-works__story { margin-bottom: 24px; }
+
+  .how-it-works__story p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .how-it-works__story strong {
+    color: var(--color-secondary);
+  }
 
   .how-it-works__grid {
     display: grid;

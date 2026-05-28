@@ -263,6 +263,72 @@ ul, ol {
 }
 
 /* ========================================
+   John Benson Letter Style
+   ======================================== */
+
+.letter-block {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.letter-block p {
+  font-size: 19px;
+  line-height: 1.9;
+  margin-bottom: 24px;
+  color: var(--color-text);
+}
+
+.letter-block p.lead {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.letter-block .highlight {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+.letter-block .emphasis {
+  font-style: italic;
+}
+
+.letter-block .strong-line {
+  font-weight: 700;
+  font-size: 21px;
+}
+
+.letter-block--white p,
+.letter-block--white .strong-line {
+  color: white;
+}
+
+.letter-block--white .highlight {
+  color: var(--color-accent);
+}
+
+.short-lines p {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.short-lines p:last-child {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .letter-block p {
+    font-size: 17px;
+  }
+  .letter-block p.lead {
+    font-size: 19px;
+  }
+  .letter-block .strong-line {
+    font-size: 18px;
+  }
+}
+
+/* ========================================
    Animations
    ======================================== */
 

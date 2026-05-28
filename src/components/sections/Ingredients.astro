@@ -14,12 +14,21 @@ const bg = backgrounds.ingredients;
   
   <div class="container ingredients__container">
     <div class="ingredients__header text-center">
-      <span class="section-label">100% NATURAL</span>
-      <h2 class="section-title text-white">Suplemento 100% Natural</h2>
-      <p class="section-subtitle ingredients__subtitle">Conheça os ingredientes da fórmula</p>
-      <p class="ingredients__intro">
-        Combinamos os melhores ingredientes naturais, cuidadosamente selecionados para potencializar seus resultados de forma segura e eficaz.
-      </p>
+      <span class="section-label">O SEGREDO DA FÓRMULA</span>
+      <h2 class="section-title text-white">Por que o OzenVitta <span class="text-gradient">funciona de verdade?</span></h2>
+      
+      <div class="ingredients__story letter-block letter-block--white text-center short-lines">
+        <p>Existe um motivo pelo qual outras fórmulas falham.</p>
+        <p>Elas atacam apenas <strong>um</strong> dos problemas.</p>
+        <p>&nbsp;</p>
+        <p>O OzenVitta é diferente.</p>
+        <p>&nbsp;</p>
+        <p>São <strong>12 ingredientes naturais</strong> trabalhando juntos.</p>
+        <p>Cada um com uma função específica.</p>
+        <p>Cada um potencializando o efeito do outro.</p>
+        <p>&nbsp;</p>
+        <p>Conheça os principais:</p>
+      </div>
     </div>
 
     <div class="ingredients__grid">
@@ -41,7 +50,8 @@ const bg = backgrounds.ingredients;
     </div>
 
     <div class="text-center ingredients__cta">
-      <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
+      <p class="ingredients__closing">Tudo isso em uma única cápsula.<br>Sem química. Sem efeitos colaterais. <strong>100% natural.</strong></p>
+      <a href="#oferta" class="btn btn--primary">Quero experimentar agora</a>
     </div>
   </div>
 </section>
@@ -63,14 +73,29 @@ const bg = backgrounds.ingredients;
 
   .ingredients__container { position: relative; z-index: 1; }
   .ingredients__header { margin-bottom: 64px; }
-  .ingredients__subtitle { color: white; opacity: 0.9; }
 
-  .ingredients__intro {
-    max-width: 700px;
-    margin: 24px auto 0;
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 16px;
-    line-height: 1.6;
+  .ingredients__story {
+    margin-top: 24px;
+  }
+
+  .ingredients__story p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .ingredients__story strong {
+    color: var(--color-accent);
+  }
+
+  .ingredients__closing {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 24px;
+    line-height: 1.7;
+  }
+
+  .ingredients__closing strong {
+    color: var(--color-accent);
   }
 
   .ingredients__grid {

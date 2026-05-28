@@ -13,11 +13,25 @@ import { media } from '../../data/media';
         loading="lazy"
       />
       
-      <h2 class="guarantee__title">Garantia de 30 dias</h2>
+      <h2 class="guarantee__title">O risco é <strong>todo nosso.</strong></h2>
       
-      <p class="guarantee__text">
-        Seu pedido está 100% protegido com a nossa Garantia de Satisfação. Se você não ficar satisfeita com os resultados, devolvemos seu dinheiro. Simples assim!
-      </p>
+      <div class="guarantee__letter letter-block text-center short-lines">
+        <p>Eu sei o que você está pensando.</p>
+        <p>"E se não funcionar pra mim?"</p>
+        <p>&nbsp;</p>
+        <p>Justo. Você já foi decepcionada antes.</p>
+        <p>&nbsp;</p>
+        <p>Por isso, a nossa garantia é <strong>simples e direta:</strong></p>
+        <p>&nbsp;</p>
+        <p>Use o OzenVitta por 30 dias.</p>
+        <p>Se você não sentir diferença no seu corpo...</p>
+        <p>Se não notar a roupa mais folgada...</p>
+        <p>Se não tiver mais energia no dia a dia...</p>
+        <p>&nbsp;</p>
+        <p>Você pede seu dinheiro de volta. <strong>100%. Sem perguntas.</strong></p>
+        <p>&nbsp;</p>
+        <p>Se não funcionar, quem perde somos nós. Não você.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -26,8 +40,16 @@ import { media } from '../../data/media';
   .guarantee { padding: 80px 0; }
   .guarantee__content { max-width: 700px; margin: 0 auto; }
   .guarantee__badge { margin: 0 auto 32px; }
-  .guarantee__title { font-size: 32px; font-weight: 700; color: var(--color-dark); margin-bottom: 20px; }
-  .guarantee__text { font-size: 18px; color: var(--color-text-light); line-height: 1.6; }
+  .guarantee__title { font-size: 32px; font-weight: 700; color: var(--color-dark); margin-bottom: 24px; }
+  .guarantee__title strong { color: var(--color-secondary); }
+
+  .guarantee__letter p {
+    color: var(--color-text);
+  }
+
+  .guarantee__letter strong {
+    color: var(--color-secondary);
+  }
 
   @media (max-width: 768px) {
     .guarantee__title { font-size: 24px; }

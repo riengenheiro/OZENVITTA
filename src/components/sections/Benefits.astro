@@ -22,10 +22,22 @@ const bg = backgrounds.benefits.desktop;
   
   <div class="container benefits__container">
     <div class="benefits__header text-center">
-      <span class="section-label">BENEFÍCIOS</span>
-      <h2 class="section-title">Transforme seu corpo com o OzenVitta</h2>
+      <span class="section-label">IMAGINE ISSO</span>
+      <h2 class="section-title text-white">E se você pudesse <span class="text-gradient">sentir isso amanhã?</span></h2>
       <img src={benefits.leaf} alt="" class="benefits__leaf" width="60" />
-      <p class="section-subtitle benefits__subtitle">Os benefícios que fazem a diferença!</p>
+    </div>
+
+    <div class="benefits__narrative letter-block letter-block--white text-center short-lines">
+      <p>Imagine acordar amanhã...</p>
+      <p>...e a roupa que não servia <strong>deslizar no corpo.</strong></p>
+      <p>&nbsp;</p>
+      <p>Imagine olhar no espelho e <strong>gostar do que vê.</strong></p>
+      <p>&nbsp;</p>
+      <p>Imagine ter energia de sobra para brincar com seus filhos,<br>
+      trabalhar sem cansaço, e ainda ter disposição à noite.</p>
+      <p>&nbsp;</p>
+      <p>Isso não é fantasia.<br>
+      É o que acontece quando seu corpo <strong>finalmente funciona a seu favor.</strong></p>
     </div>
 
     <div class="benefits__grid">
@@ -64,7 +76,19 @@ const bg = backgrounds.benefits.desktop;
   }
 
   .benefits__container { position: relative; z-index: 1; }
-  .benefits__header { margin-bottom: 64px; }
+  .benefits__header { margin-bottom: 32px; }
+
+  .benefits__narrative {
+    margin-bottom: 64px;
+  }
+
+  .benefits__narrative p {
+    font-size: 20px;
+  }
+
+  .benefits__narrative strong {
+    color: var(--color-accent);
+  }
   .benefits__leaf { margin: 16px auto; opacity: 0.8; }
   .benefits__subtitle { color: white; opacity: 0.9; }
 

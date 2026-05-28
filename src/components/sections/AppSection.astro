@@ -20,14 +20,19 @@ const appFeatures = [
   <div class="container app-section__container">
     <div class="app-section__content">
       <div class="app-section__header">
-        <span class="section-label">APLICATIVO</span>
+        <span class="section-label">BÔNUS EXCLUSIVO</span>
         <h2 class="section-title">
-          Transforme sua jornada com o <br>
-          <span class="text-gradient">aplicativo exclusivo OzenVitta!</span>
+          Mas espere...<br>
+          <span class="text-gradient">tem mais uma coisa.</span>
         </h2>
-        <p class="app-section__intro">
-          Com o nosso aplicativo exclusivo, você terá acesso a ferramentas incríveis para potencializar seus resultados.
-        </p>
+        <div class="app-section__intro short-lines">
+          <p>A cápsula sozinha já faz um trabalho incrível.</p>
+          <p>Mas nós queríamos ir além.</p>
+          <p>&nbsp;</p>
+          <p>Por isso criamos um <strong>aplicativo exclusivo</strong><br>
+          que acompanha toda a sua jornada.</p>
+          <p>E ele vem <strong>de graça</strong> com o seu OzenVitta.</p>
+        </div>
       </div>
 
       <div class="app-features">
@@ -81,10 +86,19 @@ const appFeatures = [
   .app-section__header { margin-bottom: 48px; }
 
   .app-section__intro {
-    font-size: 18px;
-    color: var(--color-text-light);
     margin-top: 24px;
     max-width: 500px;
+  }
+
+  .app-section__intro p {
+    font-size: 18px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+  }
+
+  .app-section__intro strong {
+    color: var(--color-secondary);
+    font-weight: 700;
   }
 
   .app-features { display: grid; gap: 24px; }

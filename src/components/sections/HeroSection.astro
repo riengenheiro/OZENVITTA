@@ -20,13 +20,20 @@ const bg = backgrounds.hero.desktop;
       />
       
       <h1 class="hero__title">
-        Controle seu apetite, queime gordura e <span class="text-gradient">emagreça de forma natural!</span>
+        Você já tentou de tudo para emagrecer...<br>
+        <span class="text-gradient">e nada funcionou de verdade?</span>
       </h1>
       
-      <p class="hero__description">
-        Com OzenVitta, você acelera o seu metabolismo, queima gordura localizada, controla o apetite e ainda ganha mais disposição no seu dia a dia!
-      </p>
-      
+      <div class="hero__letter short-lines">
+        <p>Então leia cada palavra desta página.</p>
+        <p>Porque o que você vai descobrir agora<br>
+        já mudou a vida de <strong>milhares de mulheres</strong><br>
+        que estavam exatamente onde você está.</p>
+        <p>Cansadas. Frustradas. Sem esperança.</p>
+        <p>Até encontrarem uma fórmula 100% natural<br>
+        que <strong>finalmente</strong> fez a balança se mover.</p>
+      </div>
+
       <div class="hero__features">
         {hero.features.map((feature) => (
           <div class="feature-item">
@@ -38,7 +45,7 @@ const bg = backgrounds.hero.desktop;
       
       <a href="#oferta" class="btn btn--primary btn--pulse">
         <span>⚡</span>
-        Quero emagrecer de forma natural
+        Quero descobrir o segredo agora
       </a>
     </div>
     
@@ -130,12 +137,19 @@ const bg = backgrounds.hero.desktop;
     margin-bottom: 24px;
   }
 
-  .hero__description {
-    font-size: 18px;
-    line-height: 1.6;
+  .hero__letter {
     margin-bottom: 32px;
-    opacity: 0.95;
-    max-width: 500px;
+    max-width: 520px;
+  }
+
+  .hero__letter p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .hero__letter strong {
+    color: var(--color-accent);
   }
 
   .hero__features {

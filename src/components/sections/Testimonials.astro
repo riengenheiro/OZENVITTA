@@ -14,10 +14,18 @@ const bg = backgrounds.testimonials;
   
   <div class="container testimonials__container">
     <div class="testimonials__header text-center">
-      <span class="section-label">RESULTADOS</span>
+      <span class="section-label">RESULTADOS REAIS</span>
       <h2 class="section-title text-white">
-        Histórias Reais de <span class="text-gradient">Sucesso</span>
+        Essas mulheres estavam <span class="text-gradient">desesperançadas.</span>
       </h2>
+      <div class="testimonials__intro letter-block letter-block--white text-center short-lines">
+        <p>Elas já tinham tentado de tudo.</p>
+        <p>Dietas. Remédios. Chás milagrosos.</p>
+        <p>Nada funcionava.</p>
+        <p>&nbsp;</p>
+        <p>Até que descobriram o OzenVitta.</p>
+        <p>Veja com seus próprios olhos o que aconteceu:</p>
+      </div>
     </div>
 
     <div class="testimonials__grid">
@@ -29,7 +37,8 @@ const bg = backgrounds.testimonials;
     </div>
 
     <div class="text-center testimonials__cta">
-      <a href="#oferta" class="btn btn--primary">Quero emagrecer</a>
+      <p class="testimonials__closing">Essas mulheres tomaram uma decisão.<br><strong>E você?</strong></p>
+      <a href="#oferta" class="btn btn--primary">Quero ser a próxima</a>
     </div>
   </div>
 </section>
@@ -57,7 +66,29 @@ const bg = backgrounds.testimonials;
 
   .testimonials__container { position: relative; z-index: 1; }
   .testimonials__header { margin-bottom: 64px; }
+
+  .testimonials__intro {
+    margin-top: 24px;
+  }
+
+  .testimonials__intro p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
   .testimonials__cta { margin-top: 48px; position: relative; z-index: 1; }
+
+  .testimonials__closing {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .testimonials__closing strong {
+    color: var(--color-accent);
+    font-size: 24px;
+  }
 
   .testimonials__grid {
     display: grid;
