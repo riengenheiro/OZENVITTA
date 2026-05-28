@@ -88,9 +88,13 @@ const kits = [
             <p class="price-installment">12X <strong>{kit.installment}</strong></p>
             <p class="price-cash">ou {kit.cash} à vista no pix</p>
           </div>
-          <a href={kit.checkout} class:list={['btn', kit.btnClass, 'btn--full']} target="_blank" rel="noopener noreferrer">
-            ⚡ QUERO TRANSFORMAR MEU CORPO
+          <a href={kit.checkout} class:list={['pricing-card__btn', kit.btnClass === 'btn--white' ? 'btn--cta' : 'btn--cta']} target="_blank" rel="noopener noreferrer">
+            <span class="btn-icon">⚡</span>
+            <span class="btn-text">QUERO COMEÇAR AGORA</span>
           </a>
+          <p class="pricing-card__legal">
+            Ao comprar, você concorda com nossa <a href="https://ozenvitta.com/politica-de-privacidade/" target="_blank">Política de Privacidade</a> e <a href="https://ozenvitta.com/termos-e-condicoes/" target="_blank">Termos de Uso</a>
+          </p>
         </div>
       ))}
     </div>
@@ -199,6 +203,70 @@ const kits = [
   .price-installment { font-size: 16px; color: var(--color-text-light); margin-bottom: 4px; }
   .price-installment strong { font-size: 32px; color: var(--color-secondary); font-weight: 800; }
   .price-cash { font-size: 14px; color: var(--color-text-light); margin-bottom: 20px; }
+
+  .pricing-card__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 3px solid var(--color-accent);
+    background: linear-gradient(135deg, #20DFB1 0%, #6FFFDD 100%);
+    color: var(--color-dark);
+    box-shadow: 0 8px 32px rgba(32, 223, 177, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+    animation: pulse-glow 2s ease-in-out infinite;
+    margin-top: auto;
+  }
+
+  .pricing-card__btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(32, 223, 177, 0.5), 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .pricing-card__btn .btn-icon {
+    font-size: 20px;
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  .pricing-card__btn .btn-text {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 8px 32px rgba(32, 223, 177, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 12px 40px rgba(32, 223, 177, 0.6), 0 6px 24px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .pricing-card__legal {
+    font-size: 11px;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-top: 12px;
+    opacity: 0.8;
+  }
+
+  .pricing-card__legal a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+
+  .pricing-card__legal a:hover {
+    color: var(--color-secondary);
+  }
 
   @media (max-width: 992px) {
     .pricing__grid { grid-template-columns: 1fr; max-width: 400px; }
