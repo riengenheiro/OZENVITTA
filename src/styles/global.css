@@ -1,0 +1,323 @@
+/* ========================================
+   OZENVITTA - Global Styles
+   ======================================== */
+
+/* CSS Variables - Cores do tema */
+:root {
+  /* Cores principais */
+  --color-primary: #246EB2;
+  --color-primary-dark: #24356F;
+  --color-secondary: #20DFB1;
+  --color-accent: #6FFFDD;
+  --color-dark: #111934;
+  
+  /* Cores de texto */
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-text-white: #FFFFFF;
+  
+  /* Cores de fundo */
+  --color-bg-white: #FFFFFF;
+  --color-bg-light: #F5F5F5;
+  
+  /* Gradientes */
+  --gradient-hero: linear-gradient(135deg, #246EB2 0%, #24356F 100%);
+  --gradient-accent: linear-gradient(135deg, #008666 0%, #6FFFDD 100%);
+  --gradient-section: linear-gradient(135deg, #246EB2 0%, #24356F 100%);
+  
+  /* Tipografia */
+  --font-primary: 'Montserrat', 'Inter', system-ui, sans-serif;
+  --font-secondary: 'Inter', system-ui, sans-serif;
+  
+  /* Espaçamentos */
+  --section-padding: 80px;
+  --container-max-width: 1200px;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 50px;
+}
+
+/* Reset básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: var(--color-text-white);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #20DFB1 0%, #6FFFDD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================
+   Section Styles
+   ======================================== */
+
+.section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+.section--gradient {
+  background: var(--gradient-hero);
+  color: var(--color-text-white);
+}
+
+.section--dark {
+  background-color: var(--color-dark);
+  color: var(--color-text-white);
+}
+
+.section--light {
+  background-color: var(--color-bg-light);
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   Button Styles
+   ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(111, 255, 221, 0.3);
+}
+
+.btn--secondary {
+  background-color: var(--color-dark);
+  color: var(--color-text-white);
+}
+
+.btn--secondary:hover {
+  background-color: #1a2344;
+}
+
+.btn--white {
+  background-color: var(--color-bg-white);
+  color: var(--color-dark);
+}
+
+.btn--white:hover {
+  background-color: #f0f0f0;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+/* ========================================
+   Card Styles
+   ======================================== */
+
+.card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ========================================
+   Grid Layouts
+   ======================================== */
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 992px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+  
+  :root {
+    --section-padding: 60px;
+  }
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+}

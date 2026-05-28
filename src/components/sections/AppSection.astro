@@ -1,0 +1,173 @@
+---
+---
+
+<section class="app-section section" id="aplicativo" style="background-image: url('https://promo.ozenvitta.com/wp-content/uploads/2025/01/BACKGROUND-APP.png'); background-size: cover; background-position: center;">
+  <div class="container app-section__container">
+    <div class="app-section__content">
+      <div class="app-section__header">
+        <span class="section-label">APLICATIVO</span>
+        <h2 class="section-title">
+          Transforme sua jornada com o <br>
+          <span class="text-gradient">aplicativo exclusivo OzenVitta!</span>
+        </h2>
+        <p class="app-section__intro">
+          Com o nosso aplicativo exclusivo, você terá acesso a ferramentas incríveis para potencializar seus resultados.
+        </p>
+      </div>
+
+      <div class="app-features">
+        <div class="app-feature">
+          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
+          <h3>Aulas com Nutricionista:</h3>
+          <p>Receba orientações sobre alimentação saudável e dicas práticas.</p>
+        </div>
+
+        <div class="app-feature">
+          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
+          <h3>Treinos com Personal:</h3>
+          <p>Aulas em vídeo práticas para você treinar em casa ou na academia.</p>
+        </div>
+
+        <div class="app-feature">
+          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
+          <h3>Grupo de Apoio:</h3>
+          <p>Conecte-se com outras mulheres na mesma jornada de transformação.</p>
+        </div>
+
+        <div class="app-feature">
+          <img src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/Rectangle-49.png" alt="" width="40" />
+          <h3>Conteúdo Exclusivo:</h3>
+          <p>O app é constantemente atualizado com dicas, vídeos e novidades.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-section__visual">
+      <img 
+        src="https://promo.ozenvitta.com/wp-content/uploads/2025/02/APLICATIVO.png" 
+        alt="Aplicativo OzenVitta" 
+        class="app-mockup"
+        width="400"
+      />
+      <img 
+        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-1.png" 
+        alt="" 
+        class="floating-left animate-float"
+        width="60"
+      />
+      <img 
+        src="https://promo.ozenvitta.com/wp-content/uploads/2025/01/FLUT-2.png" 
+        alt="" 
+        class="floating-right animate-float"
+        style="animation-delay: 0.5s"
+        width="80"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .app-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .app-section__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .app-section__header {
+    margin-bottom: 48px;
+  }
+
+  .app-section__intro {
+    font-size: 18px;
+    color: var(--color-text-light);
+    margin-top: 24px;
+    max-width: 500px;
+  }
+
+  .app-features {
+    display: grid;
+    gap: 24px;
+  }
+
+  .app-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .app-feature img {
+    margin-bottom: 4px;
+  }
+
+  .app-feature h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark);
+  }
+
+  .app-feature p {
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.5;
+  }
+
+  .app-section__visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app-mockup {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+  }
+
+  .floating-left {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    opacity: 0.6;
+  }
+
+  .floating-right {
+    position: absolute;
+    right: 0;
+    bottom: 20%;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 992px) {
+    .app-section__container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .app-section__visual {
+      order: -1;
+    }
+
+    .app-mockup {
+      width: 300px;
+    }
+
+    .floating-left,
+    .floating-right {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .app-mockup {
+      width: 250px;
+    }
+  }
+</style>

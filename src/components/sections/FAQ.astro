@@ -1,0 +1,160 @@
+---
+---
+
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="faq__header text-center">
+      <span class="section-label">F A Q</span>
+      <h2 class="section-title">Dúvidas Frequentes</h2>
+    </div>
+
+    <div class="faq__list">
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Como devo usar o OzenVitta?</span>
+          <span class="faq-item__icon">+</span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Recomendamos tomar 2 cápsulas do OzenVitta por dia, preferencialmente antes das principais refeições. Para melhores resultados, mantenha uma alimentação equilibrada e pratique atividades físicas regularmente.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>O OzenVitta tem efeitos colaterais?</span>
+          <span class="faq-item__icon">+</span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Não. OzenVitta é composto 100% por ingredientes naturais e não possui efeitos colaterais. Sua fórmula foi desenvolvida por especialistas para ser segura e eficaz.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Quanto tempo leva para ver resultados?</span>
+          <span class="faq-item__icon">+</span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Os resultados podem variar de pessoa para pessoa, mas muitas mulheres começam a notar diferença já nas primeiras semanas de uso. Para resultados mais consistentes, recomendamos o uso contínuo por pelo menos 3 meses.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Quem pode usar o OzenVitta?</span>
+          <span class="faq-item__icon">+</span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>OzenVitta é indicado para adultos que desejam emagrecer de forma natural e saudável. Não é recomendado para gestantes, lactantes e menores de 18 anos. Em caso de uso de medicamentos contínuos, consulte seu médico.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Qual o prazo de entrega?</span>
+          <span class="faq-item__icon">+</span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>O prazo de entrega varia de acordo com sua localização. Normalmente, entregamos em 7 a 15 dias úteis para todo o Brasil. Você receberá um código de rastreamento para acompanhar seu pedido.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__question">
+          <span>Como funciona a garantia?</span>
+          <span class="faq-item__icon">+</span>
+        </summary>
+        <div class="faq-item__answer">
+          <p>Você tem 30 dias de garantia incondicional. Se por qualquer motivo você não ficar satisfeita com o produto, devolvemos 100% do seu dinheiro. Basta entrar em contato com nosso suporte.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  }
+
+  .faq__header {
+    margin-bottom: 64px;
+  }
+
+  .faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+  }
+
+  .faq-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-item[open] {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-item__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    list-style: none;
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__icon {
+    width: 24px;
+    height: 24px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--color-dark);
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-item__answer {
+    padding: 0 32px 24px;
+    color: var(--color-text-light);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .faq-item__question {
+      padding: 20px 24px;
+      font-size: 16px;
+    }
+
+    .faq-item__answer {
+      padding: 0 24px 20px;
+      font-size: 14px;
+    }
+  }
+</style>

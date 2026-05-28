@@ -1,0 +1,14 @@
+{
+  "name": "ozenvitta-astro",
+  "version": "1.0.0",
+  "description": "Site OzenVitta - Convertido de WordPress Elementor para Astro",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  }
+}
