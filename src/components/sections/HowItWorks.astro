@@ -11,18 +11,20 @@ const stepTexts = [
 ];
 ---
 
-<section 
-  class="how-it-works section" 
+<section
+  class="how-it-works section"
   id="como-funciona"
   style={`--bg-desktop: url('${bg.desktop}'); --bg-mobile: url('${bg.mobile || bg.desktop}')`}
 >
-  <div class="container">
-    <div class="how-it-works__story letter-block text-center">
+  <div class="how-it-works__overlay"></div>
+
+  <div class="container how-it-works__container">
+    <div class="how-it-works__story letter-block letter-block--white text-center">
       <span class="section-label">A VERDADE SOBRE EMAGRECER</span>
-      <h2 class="section-title">
+      <h2 class="section-title text-white">
         Por que nada funcionou <span class="text-gradient">até agora?</span>
       </h2>
-      
+
       <div class="short-lines" style="margin-bottom: 48px;">
         <p>Você já fez dieta restritiva.</p>
         <p>Já cortou o carboidrato. Já passou fome.</p>
@@ -63,6 +65,19 @@ const stepTexts = [
     background-position: center;
     position: relative;
     overflow: hidden;
+    color: white;
+  }
+
+  .how-it-works__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(36, 110, 178, 0.92) 0%, rgba(36, 53, 111, 0.95) 100%);
+    z-index: 0;
+  }
+
+  .how-it-works__container {
+    position: relative;
+    z-index: 1;
   }
 
   @media (max-width: 768px) {
@@ -76,11 +91,11 @@ const stepTexts = [
   .how-it-works__story p {
     font-size: 18px;
     line-height: 1.7;
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.95);
   }
 
   .how-it-works__story strong {
-    color: var(--color-secondary);
+    color: var(--color-accent);
   }
 
   .how-it-works__grid {
