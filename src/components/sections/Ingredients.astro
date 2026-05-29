@@ -34,7 +34,7 @@ const bg = backgrounds.ingredients;
     <div class="ingredients__grid">
       {ingredients.map((item) => (
         <div class="ingredient-card">
-          <img src={item.image} alt={item.name} loading="lazy" />
+          <img src={item.image} alt={item.name} loading="lazy" width="64" height="64" decoding="async" />
           <h3>{item.name}</h3>
           <p>{item.description}</p>
         </div>
@@ -44,7 +44,7 @@ const bg = backgrounds.ingredients;
     <div class="ingredients-carousel">
       <div class="ingredients-carousel__track">
         {ingredientsCarousel.map((src) => (
-          <img src={src} alt="" class="ingredients-carousel__slide" loading="lazy" />
+          <img src={src} alt="" class="ingredients-carousel__slide" loading="lazy" width="120" height="120" decoding="async" />
         ))}
       </div>
     </div>

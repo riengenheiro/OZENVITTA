@@ -24,7 +24,7 @@ const bg = backgrounds.benefits.desktop;
     <div class="benefits__header text-center">
       <span class="section-label">IMAGINE ISSO</span>
       <h2 class="section-title text-white">E se você pudesse <span class="text-gradient">sentir isso amanhã?</span></h2>
-      <img src={benefits.leaf} alt="" class="benefits__leaf" width="60" />
+      <img src={benefits.leaf} alt="" class="benefits__leaf" width="60" height="60" decoding="async" />
     </div>
 
     <div class="benefits__narrative letter-block letter-block--white text-center short-lines">
@@ -44,16 +44,16 @@ const bg = backgrounds.benefits.desktop;
       {benefits.items.map((item, i) => (
         <div class="benefit-item">
           <div class="benefit-item__icon-wrapper">
-            <img src={item.icon} alt="" width="40" />
+            <img src={item.icon} alt="" width="40" height="40" decoding="async" />
           </div>
           <h3>{benefitTitles[i]}</h3>
-          <img src={item.divider} alt="" class="benefit-divider" width="60" />
+          <img src={item.divider} alt="" class="benefit-divider" width="60" height="20" decoding="async" />
           <p>{benefitTexts[i]}</p>
         </div>
       ))}
     </div>
 
-    <img src={benefits.floating} alt="" class="benefits__floating animate-float" width="70" />
+    <img src={benefits.floating} alt="" class="benefits__floating animate-float" width="70" height="70" decoding="async" />
   </div>
 </section>
 

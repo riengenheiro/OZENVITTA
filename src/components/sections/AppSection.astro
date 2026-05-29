@@ -38,7 +38,7 @@ const appFeatures = [
       <div class="app-features">
         {appFeatures.map((feature) => (
           <div class="app-feature">
-            <img src={app.bullets} alt="" width="40" />
+            <img src={app.bullets} alt="" width="40" height="40" decoding="async" />
             <h3>{feature.title}</h3>
             <p>{feature.text}</p>
           </div>
@@ -47,15 +47,17 @@ const appFeatures = [
     </div>
 
     <div class="app-section__visual">
-      <img src={app.mockup} alt="Aplicativo OzenVitta" class="app-mockup" width="400" loading="lazy" />
+      <img src={app.mockup} alt="Aplicativo OzenVitta" class="app-mockup" width="400" height="500" loading="lazy" decoding="async" />
       {app.floating.map((src, i) => (
-        <img 
-          src={src} 
-          alt="" 
+        <img
+          src={src}
+          alt=""
           class={`app-floating app-floating--${i + 1} animate-float`}
           style={i === 1 ? 'animation-delay: 0.5s' : undefined}
           width={i === 0 ? 60 : 80}
+          height={i === 0 ? 60 : 80}
           loading="lazy"
+          decoding="async"
         />
       ))}
     </div>

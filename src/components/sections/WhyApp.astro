@@ -14,7 +14,7 @@ const features = [
   <div class="container">
     <div class="why-app__grid">
       <div class="why-app__visual">
-        <img src={whyApp.image} alt="Mulher usando o aplicativo OzenVitta" class="why-app__image" width="500" loading="lazy" />
+        <img src={whyApp.image} alt="Mulher usando o aplicativo OzenVitta" class="why-app__image" width="500" height="400" loading="lazy" decoding="async" />
       </div>
 
       <div class="why-app__content">
@@ -31,7 +31,7 @@ const features = [
         <div class="why-app__features">
           {features.map((feature) => (
             <div class="why-feature">
-              <img src={whyApp.bullets} alt="" width="40" />
+              <img src={whyApp.bullets} alt="" width="40" height="40" decoding="async" />
               <div>
                 <h3>{feature.title}</h3>
                 <p>{feature.text}</p>

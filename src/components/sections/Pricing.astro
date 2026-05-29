@@ -81,7 +81,7 @@ const kits = [
               </ul>
             </div>
           )}
-          <img src={kit.image} alt={`${kit.pots} ${kit.pots === 1 ? 'pote' : 'potes'} OzenVitta`} class="pricing-card__image" width="180" loading="lazy" />
+          <img src={kit.image} alt={`${kit.pots} ${kit.pots === 1 ? 'pote' : 'potes'} OzenVitta`} class="pricing-card__image" width="180" height="180" loading="lazy" decoding="async" />
           <span class="pricing-card__tag" set:html={kit.name.replace(' ', '<br>')} />
           <div class="pricing-card__supply">{kit.supply}</div>
           <div class="pricing-card__price">
@@ -230,7 +230,13 @@ const kits = [
 
   .pricing-card__btn .btn-icon {
     font-size: 20px;
-    animation: pulse 1s ease-in-out infinite;
+    display: inline-block;
+    animation: pulse-scale 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
   }
 
   .pricing-card__btn .btn-text {
@@ -240,9 +246,11 @@ const kits = [
 
   @keyframes pulse-glow {
     0%, 100% {
+      transform: scale(1);
       box-shadow: 0 8px 32px rgba(32, 223, 177, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
     }
     50% {
+      transform: scale(1.02);
       box-shadow: 0 12px 40px rgba(32, 223, 177, 0.6), 0 6px 24px rgba(0, 0, 0, 0.3);
     }
   }

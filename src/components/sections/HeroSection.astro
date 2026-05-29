@@ -12,11 +12,14 @@ const bg = backgrounds.hero.desktop;
   
   <div class="container hero__container">
     <div class="hero__content">
-      <img 
+      <img
         src={hero.logo}
-        alt="OzenVitta Logo" 
+        alt="OzenVitta Logo"
         class="hero__logo"
         width="280"
+        height="80"
+        fetchpriority="high"
+        decoding="async"
       />
       
       <h1 class="hero__title">
@@ -70,11 +73,14 @@ const bg = backgrounds.hero.desktop;
         style="animation-delay: 1s"
         width="70"
       />
-      <img 
+      <img
         src={hero.product}
-        alt="Pote OzenVitta" 
+        alt="Pote OzenVitta"
         class="hero__product animate-fade-in-up"
         width="450"
+        height="450"
+        fetchpriority="high"
+        decoding="async"
       />
       <img 
         src={hero.productAlt}

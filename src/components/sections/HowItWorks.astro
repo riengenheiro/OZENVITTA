@@ -42,7 +42,7 @@ const stepTexts = [
     <div class="how-it-works__grid">
       {howItWorks.steps.map((step, i) => (
         <div class="benefit-card">
-          <img src={step.image} alt="" class="benefit-card__icon" width="80" />
+          <img src={step.image} alt="" class="benefit-card__icon" width="80" height="80" decoding="async" loading="lazy" />
           <h3 set:html={step.title} />
           <p>{stepTexts[i]}</p>
         </div>
@@ -54,8 +54,8 @@ const stepTexts = [
     </div>
   </div>
 
-  <img src={howItWorks.floating[0]} alt="" class="floating-decoration floating--left animate-float" width="60" />
-  <img src={howItWorks.floating[1]} alt="" class="floating-decoration floating--right animate-float" style="animation-delay: 0.5s" width="80" />
+  <img src={howItWorks.floating[0]} alt="" class="floating-decoration floating--left animate-float" width="60" height="60" decoding="async" loading="lazy" />
+  <img src={howItWorks.floating[1]} alt="" class="floating-decoration floating--right animate-float" style="animation-delay: 0.5s" width="80" height="80" decoding="async" loading="lazy" />
 </section>
 
 <style>
